@@ -343,3 +343,36 @@ let ref = product.update; // get function reference, here context is lost. insid
 
 ref(); // fails
 ```
+
+React Class Components as of React 16.8 version:
+1) can have state
+2) can have life-cycle methods
+
+Mounting Phase:
+```
+constructor() -> render() -> componentDidMount()
+initialize --> render the screen with initial data --> Make API calls and update state
+
+Example:
+youtube
+constructor --> initialize say 20 videos with empty strings and "rect" placeholder image
+render blank rectangles
+componentDidMount() pulls videos from server and update the screen
+
+What happens if we make API calls in constructor?
+until server responds we have blank screen -- FCP issue
+```
+
+Updating Phase: State changes
+``` 
+    shouldComponentUpdate() -> true -> render() -> componentDidUpdate()
+    shouldComponentUpdate() -> false -> render is not called
+    
+    componentDidUpdate() is the place where dependent API call has to be made.
+```
+
+https://jsonplaceholder.typicode.com/users
+
+componentWillUnMount() -> rarely used --> used to unsubscribe any subscriptions, Pop-up dialog 
+
+npm install @faker-js/faker

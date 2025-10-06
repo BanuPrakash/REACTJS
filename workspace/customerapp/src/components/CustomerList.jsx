@@ -28,7 +28,7 @@ export default class CustomerList extends Component {
     filterCustomers(txt) {
         let custs = this.state.orginal.filter(c => (c.firstName.toUpperCase().indexOf(txt.toUpperCase()) >= 0)
             || (c.lastName.toUpperCase().indexOf(txt.toUpperCase()) >= 0));
-            
+
         this.setState({
             customers: custs
         });
@@ -55,7 +55,7 @@ export default class CustomerList extends Component {
                 {
                     this.state.customers.map(cust => <CustomerRow
                         // delEvent={(id) => this.deleteCustomer(id)}
-                        // delEvent={this.deleteCustomer}
+                        // delEvent={this.deleteCustomer} // Context is lost, not understand "this"
                         delEvent={this.deleteCustomer.bind(this)}
                         key={cust.id}
                         customer={cust} />)
