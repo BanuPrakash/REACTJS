@@ -309,3 +309,20 @@ Preffered Folder structures
 ```
 
 props --> passed from parent to child [ simple XML terminology - attribute]
+
+Reconciliation in React is the process by which React efficiently updates the user interface (UI) to reflect changes in the application's state or props.
+
+Diffing Algorithm
+compares VDOM with VDOM copy
+
+```
+    diffs.forEach(element => {
+        if(element.new) {
+            elem = document.createElement(element.tag);
+            root.append(elem)
+        } else  {
+            // append Code
+        }
+    })
+
+```
