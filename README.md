@@ -376,3 +376,7 @@ https://jsonplaceholder.typicode.com/users
 componentWillUnMount() -> rarely used --> used to unsubscribe any subscriptions, Pop-up dialog 
 
 npm install @faker-js/faker
+
+====
+
+Tea Break 
