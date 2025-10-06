@@ -13,4 +13,113 @@ Softwares Required:
 Visual Studio Code.
 Chrome Web Browser
 NodeJS Latest LTS
+
+node --version
 ```
+
+Part 1:
+Introduction to NodeJS, JS Build tool and TypeScript
+
+Part 2:
+React JS
+
+Part 3:
+State Management
+
+=============================
+
+NodeJS:
+Platform with V8 JavaScript engine and libuv libraries.
+
+JS need JS engine for execution.
+V8 -> google --> Chrome / NodeJS
+Rhino -> Netscape 
+SpiderMonkey --> FireFox
+JavaScriptVM --> Opera
+Chakra --> IE
+Continnum -> Edge / V8
+Nashorn -> Oracle
+
+libuv:libuv is a multi-platform C/C++ library that provides support for asynchronous I/O based on event loops. Examples like while using setTimeout, setInterval, Promise, Network calls, IO operations, ...
+
+libuv does the same thing as WebApi in Browser
+
+Why do i need NodeJs? Can't I execute my JS directly on Browser?
+1) We can write code in Latest version of JS, TypeScript, CoffeeScript, LiveScript, Dart ...
+TypeScript --> Statically typed
+
+we need to traspile/compile them into understandable code by engine
+
+Transpile: we write code in latest JS version [ ES 2025], but browser is supporting older version like [JS 5]
+We have transpilers like Babel / Traceur
+Babel is a free and open-source JavaScript transcompiler, also known as a transpiler. Its primary function is to convert modern JavaScript code (ECMAScript 2015+ and beyond) into a backward-compatible version of JavaScript that can run in older browsers or environments that may not fully support the latest language features. 
+
+2) We need to test - Unit testing / Integration Testing / E2E Testing
+
+3) Bundle
+Without bundling:
+
+Ordering is important,
+Each script tag leads to a network call.
+One call to index.html + n calls to each of script tag and link [css]
+```
+    <script src="product.js"></script>
+    <script src="customer.js"></script>
+    <script src="order.js"></script>
+    <script src="payment.js"></script>
+```
+
+Solution is bundle them and include int template:
+```
+  <script src="bundle.js"></script>
+```
+
+4) Minify and Uglify the code.
+Why: Each character is a byte
+Before Minify:
+```
+function addProduct(product) {
+    let data = [];
+    data.push(product);
+    return product;
+}
+```
+
+After minify:
+```
+function addProduct(product){let data = [];data.push(product);return product;}
+```
+
+After Uglify:
+```
+function _a(_p){let _d = [];_d.push(_p);return _p;}
+```
+
+4) NodeJS for building APIs [ RESTful WS], real time applications [ chatbot], Tradictional web application.. [ Not over concern for this session]
+
+===========
+
+Package Managers:
+1) npm -> comes by default along with NodeJS installation
+using this we can install dependencies [3rd party libraries like react, angular, jquery, ...]
+publish your module to repository [npm repo not github]
+execute scripts
+2) yarn -> alternate to npm - faster than npm
+npm install yarn -g
+3) PNPM - good for MonoRepo
+4) RUSH - good for MonoRepo and MicroFrontEnd
+
+New Node Project:
+npm init --y
+
+creates package.json
+
+npm i lodash
+this library is installed in "node_modules" folder
+
+"lodash": "4.17.21" --> exact version
+"lodash": "^4.17.21" -> this or latest version from repo
+"lodash": "~4.17.21" -> Major version has to be 4, minor and patch can be latest
+
+
+
