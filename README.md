@@ -377,6 +377,29 @@ componentWillUnMount() -> rarely used --> used to unsubscribe any subscriptions,
 
 npm install @faker-js/faker
 
-====
+=======
 
-Tea Break 
+
+Unit testing React components.
+
+1) React Testing Library [RTL]
+https://testing-library.com/docs/react-testing-library/intro/
+
+npm install  @testing-library/react @testing-library/dom -D
+
+- render() renders React component in-memory 
+- queries to fetch elements, use this instead of document
+like document.querySelector(), document.getElementById() // avoid
+
+2) RTL can be used with jasmine/mocha/ jest/vitest testing frameworks
+
+vite gets along with vitest
+
+npm i vitest -D
+npm i jsdom -D
+
+Testing --> Assemble Action Assert [AAA]
+
+Code Coverage can be done using ISTANBUL of V8
+npm i @vitest/coverage-v8 -D
+
