@@ -327,4 +327,19 @@ compares VDOM with VDOM copy
 
 ```
 
+"binding Context":
+```
+var product = {
+    "name": "iPhone",
+    "price": 89000.00,
+    "update": function(p) {
+        this.price = p;
+    }
+}
 
+product.update(999999); // works
+
+let ref = product.update; // get function reference, here context is lost. inside update doesn;t understand "this"
+
+ref(); // fails
+```

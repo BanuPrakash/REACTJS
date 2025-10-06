@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CustomerRow from './CustomerRow';
+import Filter from './Filter';
 
 export default class CustomerList extends Component {
     name = "Danny"; // also a state, but not handled by react
@@ -17,13 +18,30 @@ export default class CustomerList extends Component {
         ]
     }
 
+    // gets called after constructor
+    componentDidMount() {
+        this.setState({
+            orginal: this.state.customers
+        })
+    }
+
+    filterCustomers(txt) {
+        let custs = this.state.orginal.filter(c => (c.firstName.toUpperCase().indexOf(txt.toUpperCase()) >= 0)
+            || (c.lastName.toUpperCase().indexOf(txt.toUpperCase()) >= 0));
+            
+        this.setState({
+            customers: custs
+        });
+    }
+
     deleteCustomer(id) {
         let custs = this.state.customers.filter(c => c.id !== id);
         // this.state.customers = custs; // no reconcilliation happens
         // always use setState() to make state changes -- triggers reconcilliation
         // actually async function, non blocking code
         this.setState({
-            customers: custs
+            customers: custs,
+            orginal: custs
         });
 
         // console.log(this.state.customers); will not display actual data
@@ -33,10 +51,12 @@ export default class CustomerList extends Component {
     render() {
         return (
             <div>
-                Name : {this.name} <br />
+                <Filter filterEvent={(txt) => this.filterCustomers(txt)} />
                 {
                     this.state.customers.map(cust => <CustomerRow
-                        delEvent={(id) => this.deleteCustomer(id)}
+                        // delEvent={(id) => this.deleteCustomer(id)}
+                        // delEvent={this.deleteCustomer}
+                        delEvent={this.deleteCustomer.bind(this)}
                         key={cust.id}
                         customer={cust} />)
                 }
