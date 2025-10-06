@@ -132,3 +132,75 @@ Module Systems:
 3) SystemJS
 4) AMD
 5) UMD
+
+=============================
+
+JavaScript build tools:
+1) Grunt
+2) Gulp
+3) Parcel
+4) Webpack -- was default until React 18 version
+5) Vite [veet] --> react 19 deprecated usage of webpack for vite.
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as  bundle, minification, compilation, unit testing, and linting. It uses a command-line interface to run custom tasks defined in a file
+
+=====
+
+vite is a next-generation tool, with built-in support for TypeScript, JSX, CSS and static assets
+
+With Webpack explicitly we need to configure:
+1) Babel for transpiler
+2) tsc -> TypeScript compiler for typescript
+3) CSS-loader, style-loader for handling CSS
+4) file-loader for static assets
+5) Html-webpack-plugin to handle bundles
+6) webpack-dev-server
+
+=============
+
+npm init --y
+npm i babel-loader @babel/core @babel/preset-env html-webpack-plugin webpack-dev-server
+
+babel-loader: understands ESM module system, CommonJS is default
+import {add} from './lib' 
+instead of
+const {add} = require('./lib'); // CommonJS
+
+loaded library is given to @babel/core --> actual transpiler
+@babel/preset-env: 
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s).
+
+Syntax transforms:
+
+```
+ const add = (x,y) => x + y;
+ let colors =  ["RGB(255,0,0)", "RGB(0,255,0)"];
+ let [red,green] = colors
+```
+into
+```
+ function add(x,y) {
+    return x + y;
+ }
+ let colors =  ["RGB(255,0,0)", "RGB(0,255,0)"];
+ var red = colors[0];
+ var green = colors[1];
+```
+
+A polyfill is a piece of code, typically JavaScript, that provides modern web platform features to older browsers or environments that do not natively support them. 
+https://caniuse.com/
+
+```
+    Promise.resolve(() => {"id": 1, "name": "iPhone"});
+```
+Polyfills from:
+https://www.npmjs.com/package/core-js
+
+npm start
+
+npm run dev
+
+========
+
+Resume @ 11:25
+
