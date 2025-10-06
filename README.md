@@ -121,5 +121,14 @@ this library is installed in "node_modules" folder
 "lodash": "^4.17.21" -> this or latest version from repo
 "lodash": "~4.17.21" -> Major version has to be 4, minor and patch can be latest
 
+Team member:
+npm install
+ this looks at package.json and downloads all the dependencies configured
 
-
+By default nodeJS understands CommonJS module system.
+Module Systems:
+1) CommonJS
+2) ESM -> ES Module system
+3) SystemJS
+4) AMD
+5) UMD
