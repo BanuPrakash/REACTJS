@@ -287,3 +287,25 @@ Mui / react-bootstrap / KendoUI / PrimeReact / Adobe React Spectrum.
 Customer application using vite:
 1) npm create vite@latest
 2) npm run dev
+
+Preffered Folder structures
+```
+ src
+    features
+      customers
+        CustomerList
+        CustomerRow
+        Filter
+      products
+        ProductList
+        ProductCard
+        ...
+      orders
+    common
+        atoms
+            Button.jsx
+        molecules
+            Card.jsx
+```
+
+props --> passed from parent to child [ simple XML terminology - attribute]
