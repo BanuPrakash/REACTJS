@@ -202,5 +202,88 @@ npm run dev
 
 ========
 
-Resume @ 11:25
+Web application Development:
+1) JS and DOM
+document.createElement("div")
+document.querySelector("div")
 
+2) jQuery library simplified DOM
+$("<div/>")
+$("div");
+
+3) Templates: Handlebar, Mustache, Underscore, jQuery Template, ..
+
+Template:
+```
+Data:
+{
+  people: [
+    "Yehuda Katz",
+    "Alan Johnson",
+    "Charles Jolley",
+  ],
+}
+Template:
+<ul class="people_list">
+  {{#each people}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+Output:
+<ul class="people_list">
+    <li>Yehuda Katz</li>
+    <li>Alan Johnson</li>
+    <li>Charles Jolley</li>
+</ul>
+```
+
+4) SPA - Single Page Application
+we have a single HTML page but many views
+MVC Architecture --> Model View Controller
+
+4.1) Backbone library supported Model and Controller support, View - any above mentioned templates
+4.2) AngularJS - Google - MVC Framework
+4.3) ReactJS -- View Library, we need 3rd party libraries for predicatable state managment
+https://www.youtube.com/watch?v=8pDqJVdNa44
+4.4) Angular - Google - MVC Framework
+4.5) Vue
+4.5) Svelete
+
+==================
+
+React Components can be created using
+1) React.createElement()
+2) Class Component
+3) Functional Component (99% of usage)
+
+Evolution of React: XHP [XML in PHP], FaxJS, ReactJs
+
+React uses JSX [JavaScript and XML]
+
+Renderers
+https://github.com/chentsulin/awesome-react-renderer
+
+Functional Components returns JSX --> React.createElement() --> JS Object
+Class Component has render() -> returns JSX --> React.createElement() -> JS Object.
+
+JS Object is given to various renderers to convert into View
+
+=====================
+
+Thinking in React:
+Atoms: These are the fundamental, indivisible building blocks of an interface, like HTML tags, buttons, labels, input fields, or icons.
+Molecules: These are groups of atoms bonded together to form a functional, reusable unit.
+Card, Navbar
+Organisms: These are relatively complex UI components composed of molecules and/or atoms, forming a distinct section of an interface. 
+Toolbar
+Templates: These are page-level structures that arrange organisms and molecules into a layout, focusing on the content structure without actual content. 
+
+99% of time we use readymade atoms and molecules 
+Mui / react-bootstrap / KendoUI / PrimeReact / Adobe React Spectrum.
+
+=======
+
+Customer application using vite:
+1) npm create vite@latest
+2) npm run dev
