@@ -403,3 +403,47 @@ Testing --> Assemble Action Assert [AAA]
 Code Coverage can be done using ISTANBUL of V8
 npm i @vitest/coverage-v8 -D
 
+==============
+
+Day 1 Recap:
+* Why we need NodeJS? V8 and libuv
+* Build tools help automate tasks like compilation, linting, testing, bundle,..
+* webpack, babel-loader, @babel/core, @babel/preset-env, @babel/preset-react[ JSX ]
+* Building react application using vite [veet]
+npm create vite@latest -> verbose --> main.jsx is an entry point
+npx create-react-app myapp [ uses webpack] --> index.js as entry point
+
+* React.createElement() for converting JSX to JS object
+* Functional component --> returns JSX
+* class component: React 16.8 we needed this because class component can have state, life-cycle methods
+render() returns JSX
+
+returned JS object from createElement() has to be passed to renderers - react-dom, react-native, react-tv,.. to convert into UI
+- state, setState() async operation
+- reconcilliation
+- componentDidMount()
+- shouldComponentUpdate() here decide if re-rendering is required
+- componentDidUpdate() any state changes render and call this - dependent API calls
+- componentWillUnmount() release any acquired resources, un-subscribe, popup
+
+RTL : react testing library - testing react components.
+
+=================================
+
+Functional components: prefered way to create components from 16.8 version onwards.
+React 16.8 version released hooks which can acheive what class component provides in functional components.
+Important hooks:
+* useState()
+* useEffect()
+* useReducer()
+* useContext()
+* useRef()
+* useCallback()
+
+
+npm create vite@latest
+
+
+
+
+
