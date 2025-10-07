@@ -575,5 +575,9 @@ shopapp % npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/re
 href is for server side routing
 Link is for client side routing
 
-<img src={} className='col-sm-12 col-md-6 col-lg-3'>
+Problem: in bigger application if we create a single bundle ==> bundle.js
+until this bundle.js is not loaded into browser we have blank screen - FCP issue
+
+instead bundle.js should have only common things required intially to display.
+other component can be lazily loaded as and when required.
 

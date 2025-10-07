@@ -10,7 +10,7 @@ type Props = {
 export default function ProductCard({ product }: Props) {
   let { id, image, title, price } = product;
   return (
-    <div className='col-md-6 col-lg-4 my-2 '>
+    <div className='col-xl-4 col-md-6 my-2 '>
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>

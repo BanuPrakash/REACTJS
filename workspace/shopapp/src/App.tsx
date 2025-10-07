@@ -1,11 +1,14 @@
 import { Container } from "react-bootstrap"
 import { Route, Routes } from "react-router-dom"
 import ProductList from "./components/ProductList"
-import CartComp from "./components/CartComp"
 import Details from "./components/Details"
-import ProductForm from "./components/ProductForm"
 import Default from "./components/Default"
 import NavbarComp from "./components/NavbarComp"
+
+import { Suspense, lazy } from "react"
+
+const CartComp = lazy(() => import("./components/CartComp"))
+const ProductForm = lazy(() => import("./components/ProductForm"))
 
 function App() {
   return (
@@ -13,9 +16,16 @@ function App() {
       <NavbarComp />
       <Routes>
         <Route path="/products" element={<ProductList />} />
-        <Route path="/cart" element={<CartComp />} />
+        <Route path="/cart" element={
+          <Suspense fallback={<div>Loading Cart...</div>}>
+            <CartComp />
+          </Suspense>
+        } />
         <Route path="/details/:id" element={<Details />} />
-        <Route path="/form" element={<ProductForm />} />
+        <Route path="/form" element={
+          <Suspense fallback={<div>Loading form...</div>}>
+            <ProductForm />
+          </Suspense>} />
         <Route path="/" element={<ProductList />} />
         <Route path="*" element={<Default />} />
       </Routes>
