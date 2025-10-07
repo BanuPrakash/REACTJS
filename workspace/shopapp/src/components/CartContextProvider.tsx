@@ -6,7 +6,8 @@ type ContextType = {
     total: number,
     quantity: number,
     addToCart: (item:CartItem) => void,
-    checkout: () => void
+    checkout: () => void,
+    increment: (id:number) => void
 }
 
 // centralized placeholder, to avoid props drill
@@ -16,7 +17,8 @@ export const CartContext = createContext<ContextType>({
     total: 0,
     quantity: 0,
     addToCart: (item:CartItem) => {},
-    checkout: () => {}
+    checkout: () => {},
+    increment: (id:number) =>{}
 });
 
 const initialState = {
@@ -41,8 +43,11 @@ export default function CartContextProvider({children}: Props) {
     dispatch({type:'CLEAR_CART'})
   }
 
+  function increment(id: number) {
+    dispatch({type:'INCREMENT', payload: id})
+  }
   return (
-    <CartContext.Provider value={{...state, addToCart, checkout}}>
+    <CartContext.Provider value={{...state, addToCart, checkout, increment}}>
         {children}
     </CartContext.Provider>
   )

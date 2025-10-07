@@ -598,9 +598,7 @@ cache the result for an expensive function call
     });
 
     return <ProfileContext.Provider value={{displayName: user.name, avatar: user.image, role: user.authorities}}>
-        {children}
+        
     </ProfileContext.Provider>
 
 ```
-
-
