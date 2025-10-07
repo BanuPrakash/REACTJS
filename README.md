@@ -588,5 +588,19 @@ Using React Context, reducers, useReducer for handling Cart.
 Memoization Pattern:
 cache the result for an expensive function call
 
+```
+    let [user, setUser] = useState();
+    const ProfileContext = createContext(); 
+
+    useEffect(() => {
+        axios.post("http://myserver.com", {username:"Sam", Password: "secret"})
+        .then(response => setUser(response.data))
+    });
+
+    return <ProfileContext.Provider value={{displayName: user.name, avatar: user.image, role: user.authorities}}>
+        {children}
+    </ProfileContext.Provider>
+
+```
 
 
