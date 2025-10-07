@@ -443,7 +443,81 @@ Important hooks:
 
 npm create vite@latest
 
+```
+<UserCard user={user} setUid={setUid} key={user.id}/>
+<div> 
+{
+ user   
+}
+</div>
+
+@babel/preset-react invokes UserCard() --> JSX -> React.createElement() -> JS
+ 
+let React = {
+    createElement: (tag, props, ...children) => {
+        if(typeof tag === 'function') {
+            return tag(props);
+        }
+        var element = {tag, props: {...props, children}};
+        return element;
+    }
+ }
+
+```
+
+* useReducer()
+is a hook to be used instead of useState() if
+a) state mutation depends on previous state
+b) state is complex
+c) conditionally mutate the state
+
+```
+    State:
+    {
+            "cartItems": [
+                {"id": 1, "product": "iphone", "qty": 2, "price": 2221},
+                {"id": 2, "product": "LG AC", "qty": 1, "price": 6512}
+            ],
+            total: 52324,
+            quantity : 2
+    }
+Add to Cart:
+{"product":"Sony TV", "qty" : 1}
+
+we need to add the payload to cartItems, recomute total and quantity
+
+Remove from cart:
+2
+
+increment iPhone qty
 
 
+```
 
+Counter will have a count,
+Different actions like INCREMENT, DECREMENT, RESET
+
+* Action object is one which has type of action and optinonal payload
+
+```
+    {
+        type:'ADD_TO_CART',
+        payload: {"product": "iPhone", qty: 4}
+    }
+
+    {
+        type: 'CLEAR_CART'
+    }
+
+    {
+        type:'INCREMENT',
+        payload: 1
+    }
+
+```
+
+* reducer functions:
+The reducer function receives the current state of your application and an "action" object - conditionally mutate and return new state.
+
+(state, action) => new state
 
