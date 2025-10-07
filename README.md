@@ -581,3 +581,9 @@ until this bundle.js is not loaded into browser we have blank screen - FCP issue
 instead bundle.js should have only common things required intially to display.
 other component can be lazily loaded as and when required.
 
+=============
+
+Using React Context, reducers, useReducer for handling Cart.
+
+Memoization Pattern:
+cache the result for an expensive function call
