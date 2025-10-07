@@ -1,6 +1,9 @@
 import { createContext, useReducer } from "react";
 import type CartItem from "../models/CartItem";
 import cartReducer from "../reducers/cartReducer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 type ContextType = {
     items: CartItem[],
     total: number,
@@ -32,7 +35,7 @@ type Props = {
 }
 
 export default function CartContextProvider({children}: Props) {
-    
+   let navigate = useNavigate();
   let [state, dispatch] = useReducer(cartReducer, initialState);
   
   function addToCart(item:CartItem) {
@@ -40,7 +43,22 @@ export default function CartContextProvider({children}: Props) {
   }
 
   function checkout() {
-    dispatch({type:'CLEAR_CART'})
+    // on login, store email in session storage
+    // window.sessionStorage.setItem("email", "banu@gmail.com")
+    let email = window.sessionStorage.getItem('email');
+    let order = {
+      "customer": {"email": email},
+      items: state.items,
+      orderDate: new Date()
+    };
+
+    axios.post("http://localhost:1234/orders", order)
+    .then(response => {
+      console.log(response.data);
+       dispatch({type:'CLEAR_CART'});
+       navigate("/");
+    })
+   
   }
 
   function increment(id: number) {

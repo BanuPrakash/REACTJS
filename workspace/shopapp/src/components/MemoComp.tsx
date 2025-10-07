@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+
 const expensiveCalculation = (num: number) => {
   console.log("Calculating...");
   for (let i = 0; i < 1000000000; i++) {
@@ -9,15 +10,24 @@ const expensiveCalculation = (num: number) => {
 
 export default function MemoComp() {
   const [count, setCount] = useState(0);
-  const [todos, setTodos] = useState([]);
-  const calculation = expensiveCalculation(count);
+  const [todos, setTodos] = useState<any[]>([]);
+  const calculation = useMemo(() => expensiveCalculation(count), [count]); // called every state change
+  // const [res, setRes] = useState(0);
+
+
+  // useEffect(() => {
+  //  setRes(expensiveCalculation(count))
+  // }, [count]);
+
 
   const increment = () => {
     setCount((c) => c + 1);
   };
+
   const addTodo = () => {
     setTodos((t) => [...t, "New Todo"]);
   };
+
   return (
     <div>
       <div>

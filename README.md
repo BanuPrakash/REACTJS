@@ -602,3 +602,12 @@ cache the result for an expensive function call
     </ProfileContext.Provider>
 
 ```
+
+Checkout ==> place order to server, clear cart contents and redirect to landing page
+
+json-server -> Fake RESTful WS
+
+npx json-server --watch data.json --port 1234
+
+Any state changes in functional component, entire function is reloaded in engine.
+

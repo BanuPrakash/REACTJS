@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartContextProvider';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: Product
@@ -17,7 +18,9 @@ export default function ProductCard({ product }: Props) {
   return (
     <div className='col-xl-4 col-md-6 my-2'>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={image} />
+        <Link to={`/details/${id}`} >
+            <Card.Img variant="top" src={image} />
+         </Link>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
         </Card.Body>
