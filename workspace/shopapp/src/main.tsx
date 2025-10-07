@@ -5,8 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.tsx'
 
 import { BrowserRouter } from 'react-router-dom'
+import CartContextProvider from './components/CartContextProvider.tsx'
 
 createRoot(document.getElementById('root')!)
   .render(<BrowserRouter>
-    <App />
+    <CartContextProvider>
+      <App />
+    </CartContextProvider>
   </BrowserRouter>)

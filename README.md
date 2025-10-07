@@ -587,3 +587,6 @@ Using React Context, reducers, useReducer for handling Cart.
 
 Memoization Pattern:
 cache the result for an expensive function call
+
+
+

@@ -1,7 +1,13 @@
 import React from 'react'
+import type CartItem from '../models/CartItem'
 
-export default function CartRow() {
+type Props = {
+  product: CartItem
+}
+export default function CartRow({product}: Props) {
   return (
-    <div>CartRow</div>
+    <div>
+      {product.title}
+    </div>
   )
 }

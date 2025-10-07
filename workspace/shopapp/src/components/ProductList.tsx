@@ -6,6 +6,7 @@ import ProductCard from './ProductCard';
 export default function ProductList() {
   let [products, setProducts] = useState<Product[] | undefined>();
 
+  // componentDidMount
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products?limit=5")
     .then(response => setProducts(response.data));
