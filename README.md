@@ -441,8 +441,6 @@ Important hooks:
 * useCallback()
 
 
-npm create vite@latest
-
 ```
 <UserCard user={user} setUid={setUid} key={user.id}/>
 <div> 
@@ -520,4 +518,62 @@ Different actions like INCREMENT, DECREMENT, RESET
 The reducer function receives the current state of your application and an "action" object - conditionally mutate and return new state.
 
 (state, action) => new state
+
+====================================
+
+React Context: React 16.4
+Placeholder for storing data to avoid props drill.
+
+
+====
+
+Shopping application:
+1) react hooks
+2) Context for State management for smaller applications
+3) react-router-dom
+4) axios for API call instead of fetch
+5) bootstrap - CSS Framework for RWD
+6) react-bootstrap / mui /adobe spectrum
+7) @fortawesome/react-fontaswesome
+8) @fortawesome/free-solid-svg-icons
+9) typescript
+
+Same application we will convert to use REDUX tommorrow
+
+===========
+
+1) NavbarComponent 
+2) ProductList
+3) ProductCard
+4) Details
+5) CartComp
+6) CartRow
+7) ProductForm
+8) Default
+
+react-router-dom module helps to display different component for different URLs
+http://localhost:3000/products
+http://localhost:3000/cart
+http://localhost:3000/details/3
+http://localhost:3000/form
+http://localhost:3000/sdfsdf 
+
+react-router-dom also helps in lazy loading of components
+axios for API call instead of fetch
+
+==============
+
+
+npm create vite@latest
+1) shopapp
+2) react
+3) typescript
+
+cd shopapp
+shopapp % npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+href is for server side routing
+Link is for client side routing
+
+<img src={} className='col-sm-12 col-md-6 col-lg-3'>
 
