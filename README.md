@@ -611,3 +611,14 @@ npx json-server --watch data.json --port 1234
 
 Any state changes in functional component, entire function is reloaded in engine.
 
+=======================
+
+ProductForm --> different ways to handle form data
+Redux, RTK
+
+https://gist.github.com/cmota/f7919cd962a061126effb2d7118bec72
+
+places questions in data.json
+
+http://localhost:1234/questions
+
