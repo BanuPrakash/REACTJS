@@ -645,3 +645,82 @@ Less control over real-time validation and manipulation of input.
 Relies on the DOM to manage the input's state, which can be less predictable.
 
 ```
+
+Predictable State Management:
+Most of the developers used MVC Architecture to seperate concerns like Angular ,Backbone,..
+Model View Controller -> Microsoft Excel
+Model -> business data and logic
+View -> Presentation
+Controller -> Application Logic / event handling
+
+======
+
+React - Unidirectional data flow
+State Managment also to be unidirectional data flow - Flux Architecture
+
+```
+class UserStore extends EventEmitter {
+    constructor() {
+        super();
+        this._users = []; // Private state
+    }
+
+    getUsers() {
+        return this._users;
+    }
+
+    // Method called by the Dispatcher after an action
+    addUsers(newUsers) {
+        this._users = [...this._users, ...newUsers];
+        this.emit('change'); // Emit change event
+    }
+}
+
+```
+
+Based on Flux Architecture:
+1) Redux
+2) MobX
+3) Recoil
+...
+
+Redux is the most preferred Predicatable State managment.
+Why Redux?
+1) Time Travel Debugging
+2) integrates well with 3rd party libraries for async operations
+3) Can be developed as seperate module and integrated with other frontend and backend tech like React, Angular, jQuery, ExpressJS , NextJS
+4) Good for GlobalStore in MicroFront applicaitons
+5) Seperation of Concerns
+
+```
+React Context API:
+    Purpose: Primarily designed to address "prop drilling," the issue of passing props down through many layers of nested components. It allows data to be shared across the component tree without explicitly passing props at each level.
+    Simplicity: Simpler to implement and requires less boilerplate code compared to Redux.
+    Use Cases: Ideal for sharing less frequently updated data or managing localized state that doesn't require complex logic, such as theme settings, user authentication status, or language preferences.
+    Performance: Updates to context can trigger re-renders of all consuming components within its tree, even if they don't directly use the updated value, potentially impacting performance in highly dynamic scenarios.
+
+Redux:
+    Purpose: A standalone library for predictable state management, offering a centralized store for the entire application's state. It follows a strict, unidirectional data flow (actions, reducers, store).
+    Complexity: Involves more concepts (actions, reducers, store, middleware) and boilerplate code, leading to a steeper learning curve.
+    Use Cases: Best suited for large, complex applications with frequent state changes, intricate data flows, and a need for powerful debugging tools (like Redux DevTools for time-travel debugging).
+    Performance: Optimized for performance, as it only re-renders components that are specifically subscribed to the updated parts of the Redux state.
+    Ecosystem: Benefits from a rich ecosystem of middleware and extensions for handling side effects, persistence, and more.
+
+```
+
+
+npm create vite@latest
+reduxexample, react, javascript
+
+reduxexample % npm i redux react-redux
+
+
+STATE IN STORE:
+
+{
+    contacts:[],
+    profile: {
+        "avatar": "banu.png", "name":"Banu Prakash"
+    }
+}
+
