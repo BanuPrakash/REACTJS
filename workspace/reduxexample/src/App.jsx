@@ -15,6 +15,7 @@ function App(props) {
 
   return (
     <>
+    <h1>Welcome {props.displayName }</h1>
      <form onSubmit={handleSubmit}>
       <input name="name" type="text" placeholder="Name" />
       <input name="email" type="email" placeholder="Email" />

@@ -715,12 +715,16 @@ reduxexample, react, javascript
 reduxexample % npm i redux react-redux
 
 
-STATE IN STORE:
+===============
 
-{
-    contacts:[],
-    profile: {
-        "avatar": "banu.png", "name":"Banu Prakash"
-    }
-}
+Redux toolkit
 
+Convert "shopapp" statemanagement from Context to RTK.
+
+npm create vite@latest
+shopapp-rtk
+react
+typescript
+
+shopapp-rtk % npm i @reduxjs/toolkit react-redux
+shopapp-rtk % npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
