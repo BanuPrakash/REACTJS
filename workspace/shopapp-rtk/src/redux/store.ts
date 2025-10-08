@@ -2,6 +2,7 @@ import { configureStore, ReducerType } from "@reduxjs/toolkit";
 import cartReducer from "./features/cartSlice";
 import profileReducer from "./features/profileSlice";
 import { useDispatch, useSelector, type TypedUseSelectorHook } from "react-redux";
+import { customerApi } from "./api/customerApi";
 
 // function doTask() {
 //     return {
@@ -24,9 +25,12 @@ const store = configureStore({
     // root reducer
     reducer: {
        cart: cartReducer,
-       profile: profileReducer
+       profile: profileReducer,
+       [customerApi.reducerPath]: customerApi.reducer
     },
     // devTools: false
+    //adding middleware enables caching, invalidation, polling, and other useful features of RTK Query
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(customerApi.middleware) 
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -29,7 +29,6 @@ const cartSlice = createSlice({
                 item.qty += 1;
                 item.amount = item.price * item.qty;
                 state.total = state.items.map(item => item.amount).reduce((a,b) => a + b, 0);
-                state.quantity += 1;
             }
         })
     },

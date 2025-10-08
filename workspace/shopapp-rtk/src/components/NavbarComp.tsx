@@ -24,6 +24,7 @@ export default function NavbarComp() {
           </Nav.Link>
           <Nav.Link as={Link} to="/form">Product Form</Nav.Link>
            <Nav.Link as={Link} to="/memo">Memo</Nav.Link>
+              <Nav.Link as={Link} to="/customers">Customers</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

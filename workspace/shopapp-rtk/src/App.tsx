@@ -7,6 +7,7 @@ import NavbarComp from "./components/NavbarComp"
 import MemoComp from "./components/MemoComp"
 
 import { Suspense, lazy } from "react"
+import Customers from "./components/Customers"
 
 
 const CartComp = lazy(() => import("./components/CartComp"))
@@ -29,6 +30,7 @@ function App() {
             <ProductForm />
           </Suspense>} />
         <Route path="/memo" element={<MemoComp />} />
+        <Route path="/customers" element={<Customers />} />
         <Route path="/" element={<ProductList />} />
         <Route path="*" element={<Default />} />
       </Routes>
