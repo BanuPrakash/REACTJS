@@ -728,3 +728,33 @@ typescript
 
 shopapp-rtk % npm i @reduxjs/toolkit react-redux
 shopapp-rtk % npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+======
+
+react-redux hooks
+1) useSelector() is a hook which closely translates to mapStatetoProps passed to connect()
+
+let {avatar, displayName} = useSelector(state => state.profile);
+let {items, total} = useSelector(state => state.cart)
+
+2) useDispatch() is a hook which is like mapDispatchToProps
+
+let dispatch = useDispatch();
+dispatch(increment(3));
+
+
+Below code is not required:
+```
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    ) (App)
+```
+
+
+RTK Query : is advanced data fetching and caching tool
+
+Extensions:
+ES7+ React/Redux/React-Native snippets
+JSON to TS
+github Copilot
