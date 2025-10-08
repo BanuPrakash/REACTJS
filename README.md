@@ -622,3 +622,26 @@ places questions in data.json
 
 http://localhost:1234/questions
 
+==================
+
+Form Handling in React
+
+1) Controlled Components
+```
+State Management: The form data in a controlled component is entirely managed by the React component's state. The component's state is the single source of truth for the input's value.
+Characteristics:
+Easier to validate and manipulate input in real-time.
+Provides more control over the form elements and their behavior.
+Requires more boilerplate code to manage state and event handlers.
+
+```
+2) UnControlled Components
+```
+State Management: The form data in an uncontrolled component is managed by the DOM itself, similar to traditional HTML forms. React does not directly control the input's value.
+
+Characteristics:
+Simpler to implement for basic forms, requiring less boilerplate code.
+Less control over real-time validation and manipulation of input.
+Relies on the DOM to manage the input's state, which can be less predictable.
+
+```
