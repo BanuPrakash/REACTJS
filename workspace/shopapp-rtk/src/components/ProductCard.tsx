@@ -6,12 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../redux/store';
+import { addToCart } from '../redux/features/cartSlice';
 
 type Props = {
   product: Product
 }
 
 export default function ProductCard({ product }: Props) {
+  let dispatch = useAppDispatch(); // type safe dispatch
+
   let { id, image, title, price } = product;
  
  
@@ -32,7 +36,7 @@ export default function ProductCard({ product }: Props) {
           <FontAwesomeIcon 
             icon={faShoppingCart} 
             color='blue' 
-            
+            onClick={() => dispatch(addToCart({...product, qty: 1, amount: price}))}
             />
         </Card.Footer>
       </Card>
